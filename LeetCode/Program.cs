@@ -26,8 +26,9 @@ namespace LeetCode
 
             //bool power = IsPowerOfTwo(3);
             //Console.WriteLine(power);
-            int[] nums = { 1 };
-            Console.WriteLine(SingleNumber(nums)) ;
+            int[] nums = { 1, 0, 2, 3, 0, 4, 5, 0 };
+            DuplicateZeros(nums);
+            foreach (int i in nums) { Console.WriteLine(    i); }
 
 
 
@@ -126,6 +127,7 @@ namespace LeetCode
 
         public static void DuplicateZeros(int[] arr) //[1,0,2,3,0,4,5,0]
         {
+            
             for (int i = 0; i < arr.Length; i++)
             {
                 if (arr[i] ==0)
@@ -134,9 +136,10 @@ namespace LeetCode
                     {
                         arr[j] = arr[j-1];
                     }
+                    i++;
                 }
 
-                i++;
+                
                 
             }
 
