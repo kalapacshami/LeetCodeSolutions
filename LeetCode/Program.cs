@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace LeetCode
 {
@@ -26,9 +27,13 @@ namespace LeetCode
 
             //bool power = IsPowerOfTwo(3);
             //Console.WriteLine(power);
-            int[] nums = { 1, 0, 2, 3, 0, 4, 5, 0 };
-            DuplicateZeros(nums);
-            foreach (int i in nums) { Console.WriteLine(    i); }
+            int[] nums = { 2,3,4 };
+            int[] nums2 = { 1,2,3,4,5,0,0,0 };
+            //DuplicateZeros(nums);
+            //foreach (int i in nums) { Console.WriteLine(    i); }
+
+            Merge(nums,3,nums2,5);
+
 
 
 
@@ -36,9 +41,69 @@ namespace LeetCode
 
         }
 
+        public bool CheckIfExist(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = i+1; j < arr.Length; j++)
+                {
+                    if (arr[i] == 2* arr[j] || arr[j] == 2 * arr[i])
+                    {
+                        return true;
+                    }
+                }
+
+
+            }
+            return false;
+
+
+
+
+
+
+        }
+
+
         public void SortColors(int[] nums) // 0, 1, 2 red,white, blue
         {
             
+        }
+
+        public static void Merge(int[] nums1, int m, int[] nums2, int n)
+        {
+
+            int i = m - 1; 
+            int j = n - 1; 
+            int k = m + n - 1; 
+
+            
+            while (i >= 0 && j >= 0)
+            {
+                
+                if (nums1[i] > nums2[j])
+                {
+                    nums1[k] = nums1[i];
+                    i--;
+                }
+                else
+                {
+                    nums1[k] = nums2[j];
+                    j--;
+                }
+                k--;
+            }
+
+            
+            while (j >= 0)
+            {
+                nums1[k] = nums2[j];
+                j--;
+                k--;
+            }
+
+
+
         }
 
         public static int SingleNumber(int[] nums)
@@ -75,11 +140,12 @@ namespace LeetCode
             return false;
                         
         }
+        
 
         public static int RemoveElement(int[] nums, int val) //nums = [0,1,2,2,3,0,4,2], val = 2 Output: 5, nums = [0,1,4,0,3,_,_,_]
         {
             int k = 0;
-            
+
 
             for (int i = 0; i < nums.Length; i++)
             {
@@ -91,7 +157,7 @@ namespace LeetCode
 
                     k++;
                 }
-                
+
             }
 
 
@@ -266,7 +332,7 @@ namespace LeetCode
             int n = mat[0].Length; // 3 sor
             int[] result = new int[m * n]; // 3*3 matrix
 
-            int row = 0, col = 0, index = 0;
+            int row = 0, col = 0;
 
             for (int i = 0; i < m * n; i++)
             {
