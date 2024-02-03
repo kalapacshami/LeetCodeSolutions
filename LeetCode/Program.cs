@@ -27,18 +27,33 @@ namespace LeetCode
 
             //bool power = IsPowerOfTwo(3);
             //Console.WriteLine(power);
-            int[] nums = { 2,3,4 };
+            int[] nums = { 2,3,4,3,2,1};
             int[] nums2 = { 1,2,3,4,5,0,0,0 };
             //DuplicateZeros(nums);
             //foreach (int i in nums) { Console.WriteLine(    i); }
 
-            Merge(nums,3,nums2,5);
+            //Merge(nums,3,nums2,5);
+
+            TitleToNumber("ZY");
 
 
 
 
+        }
 
 
+        public static int TitleToNumber(string columnTitle)
+        {
+            
+            int result = 0;
+
+            foreach (char c in columnTitle)
+            {
+                int digitValue = c - 'A' + 1;
+                result = result * 26 + digitValue;
+            }
+
+            return result;
         }
 
         public bool CheckIfExist(int[] arr)
@@ -59,6 +74,112 @@ namespace LeetCode
 
 
 
+
+
+
+        }
+        public static bool ValidMountainArray2(int[] arr)
+        {
+            int n = arr.Length;
+
+            
+            if (n < 3)
+            {
+                return false;
+            }
+
+            
+            int peakIndex = 0;
+            while (peakIndex < n - 1 && arr[peakIndex] < arr[peakIndex + 1])
+            {
+                peakIndex++;
+            }
+
+            
+            if (peakIndex == 0 || peakIndex == n - 1)
+            {
+                return false;
+            }
+
+            
+            for (int i = 0; i < peakIndex; i++)
+            {
+                if (arr[i] >= arr[i + 1])
+                {
+                    return false;
+                }
+            }
+
+            
+            for (int i = peakIndex; i < n - 1; i++)
+            {
+                if (arr[i] <= arr[i + 1])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+
+
+        }
+
+        public static bool ValidMountainArray(int[] arr)
+        {
+
+            int max =  arr.Max(); // 5
+            int counter = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == max)
+                {
+                    counter++;
+                }
+            }
+
+            if (counter == 1)
+            {
+                for (int i = 0; i < max; i++)
+                {
+                    if (arr[i] < arr[i+1])
+                    {
+                        for (int j = max; j < arr.Length; j++)
+                        {
+                            if (arr[j] > arr[j + 1])
+                            {
+                                return true;
+                            }
+                            
+                        }
+                    }
+                    else if ( arr[i] > arr[i + 1])
+                    {
+                        for (int j = max; j < arr.Length-1; j++)
+                        {
+                            if (arr[j] < arr[j + 1])
+                            {
+                                return true;
+                            }
+                            
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
+
+
+                }
+                return false;
+
+
+
+            }
+            else
+            {
+                return false;
+            }
 
 
 
