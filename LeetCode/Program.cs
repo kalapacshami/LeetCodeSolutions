@@ -40,7 +40,90 @@ namespace LeetCode
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
+
+
+        //Input: nums = [0,1,0,3,12] Output: [1,3,12,0,0]
+        public void MoveZeroes(int[] nums)
+        {
+            int nonZeroIndex = 0;
+
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] != 0)
+                {
+
+                    int temp = nums[i];
+                    nums[i] = nums[nonZeroIndex];
+                    nums[nonZeroIndex] = temp;
+
+                    nonZeroIndex++;
+
+
+
+                }
+
+            }
+        }
+
+        public int[] SortArrayByParity(int[] nums) // nums = [3,1,2,4,5,3,4,5,6,7,7,8]
+        {
+
+
+            int evenIndex = 0;
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] % 2 == 0)
+                {
+                    
+                    int temp = nums[i];
+                    nums[i] = nums[evenIndex];
+                    nums[evenIndex] = temp;
+
+                    evenIndex++;
+                }
+            }
+
+            return nums;
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
