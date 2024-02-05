@@ -27,24 +27,34 @@ namespace LeetCode
 
             //bool power = IsPowerOfTwo(3);
             //Console.WriteLine(power);
-            int[] nums = { 2,3,4,3,2,1};
+            int[] nums = { 17, 18, 5, 4, 6, 1 };
             int[] nums2 = { 1,2,3,4,5,0,0,0 };
             //DuplicateZeros(nums);
             //foreach (int i in nums) { Console.WriteLine(    i); }
 
             //Merge(nums,3,nums2,5);
 
-            TitleToNumber("ZY");
+            //TitleToNumber("ZY");
 
+            int[] result = ReplaceElements(nums);
 
 
 
         }
 
-        public int ClimbStairs(int n) //3 
-        {
-            
-        }
+
+
+
+
+
+
+
+
+
+        //public int ClimbStairs(int n) //3 
+        //{
+
+        //}
 
         //public static bool IsIsomorphic(string s, string t) // egg , add
         //{
@@ -57,6 +67,48 @@ namespace LeetCode
         //        }
         //    }
         //}
+
+
+        public static int[] ReplaceElements(int[] arr) // Input: arr = [17,18,5,4,6,1] Output: [18,6,6,6,1,-1]
+        {
+
+
+            //int last = arr.Length - 1;
+
+            //int max = 0;
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    max = arr[i+1];
+            //    for (int j = i+1; j < arr.Length; j++)
+            //    {
+            //        if (arr[j] > max)
+            //        {
+            //            arr[i] = arr[j];
+            //        }
+            //    }
+
+
+            //}
+            //arr[last] = -1;
+            //return arr;
+
+            int n = arr.Length;
+            int maxRight = -1;
+
+            for (int i = n - 1; i >= 0; i--)
+            {
+                int currentElement = arr[i];
+                arr[i] = maxRight; 
+                maxRight = Math.Max(maxRight, currentElement);
+            }
+
+            return arr;
+
+
+        }
+
+
+
 
 
         public static int TitleToNumber(string columnTitle)
@@ -88,10 +140,6 @@ namespace LeetCode
 
             }
             return false;
-
-
-
-
 
 
         }
