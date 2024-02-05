@@ -41,6 +41,23 @@ namespace LeetCode
 
         }
 
+        public int ClimbStairs(int n) //3 
+        {
+            
+        }
+
+        //public static bool IsIsomorphic(string s, string t) // egg , add
+        //{
+
+        //    for (int i = 0; i < s.Length; i++)
+        //    {
+        //        for(int j = 0; j < t.Length; j++)
+        //        {
+
+        //        }
+        //    }
+        //}
+
 
         public static int TitleToNumber(string columnTitle)
         {
