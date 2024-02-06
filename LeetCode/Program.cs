@@ -112,7 +112,15 @@ namespace LeetCode
 
         }
 
-
+        //public int FirstUniqChar(string s) // Input: s = "loveleetcode"
+        //{
+        //    for (int i = 1; i < s.Length; i++)
+        //    {
+        //        char ch = s[i-1];
+                
+        //    }
+            
+        //}
 
 
 
@@ -435,25 +443,42 @@ namespace LeetCode
 
         public static int MySqrt(int x)
         {
-            if (x < 0)
+            if (x == 0 || x == 1)
+                return x;
+
+            long left = 1;
+            long right = x;
+
+            while (left <= right)
             {
-                throw new ArgumentException("Big no no negativ number");
+                long mid = left + (right - left) / 2;
+                long square = mid * mid;
+
+                if (square == x)
+                    return (int)mid;
+                else if (square < x)
+                    left = mid + 1;
+                else
+                    right = mid - 1;
             }
 
-            double guess = x / 2;
-
-            for (int i = 0; i < 1000; i++) 
-            {
-                guess = 0.5 * (guess + x / guess);
-            }
-
-            return Convert.ToInt32(Math.Floor(guess));
+            return (int)right;
 
 
         }
 
 
+        public int MajorityElement(int[] nums)
+        {
+            double app = nums.Length / 2;
+            int counter = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+               
+            }
 
+            return 0;
+        }
 
 
 
