@@ -117,15 +117,75 @@ namespace LeetCode
         //    for (int i = 1; i < s.Length; i++)
         //    {
         //        char ch = s[i-1];
-                
+
         //    }
-            
+
         //}
 
+        public bool ContainsDuplicate(int[] nums)
+        {
+            for (int i = 0;i < nums.Length; i++)
+            {
+                for (int j = nums.Length-1; j> i ; j--)
+                {
+                    if (nums[i] == nums[j])
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+            
+        }
+
+        public bool CanWinNim(int n)
+        {
+            int counter = 0;
+            if (n == 1 || n == 2 || n == 3)
+            {
+                return true;
+            }
+            else
+            {
+                do
+                {
+                    n -= 3;
+                    counter++;
+
+                } while (n > 3);
+
+                if (counter % 2 == 0)
+                {
+                    return true;
+                }
+                else { return false; }
+
+
+
+            }
+            //return false;
 
 
 
 
+
+        }
+
+        public int AddDigits(int num)
+        {
+            while (num >= 10)
+            {
+                int sum = 0;
+                while (num > 0)
+                {
+                    sum += num % 10;
+                    num /= 10;
+                }
+                num = sum;
+            }
+            return num;
+        }
 
 
 
