@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace LeetCode
 {
@@ -45,7 +47,7 @@ namespace LeetCode
             //string test = "(){}}{";
             //Console.WriteLine(IsValid(test));
 
-            
+            Console.WriteLine(HammingWeight(00000000000000000000000000001011));
 
 
 
@@ -65,9 +67,36 @@ namespace LeetCode
 
         }
 
+        public static int LengthOfLastWord(string s)
+        {
+            
+            
+            string lastWord = s.TrimEnd();
+            lastWord = lastWord.Split(' ').Last();
+            return lastWord.Length;
 
 
 
+        }
+
+        public static int HammingWeight(uint n)
+        {
+            CultureInfo provider = new CultureInfo("fr-FR");
+            string format = "D5";
+            string str = n.ToString(format, provider);
+            
+            int counter = 0;
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i] == 1)
+                {
+                    counter += 1;
+                }
+            }
+
+            return counter;
+
+        }
 
 
 
@@ -80,7 +109,7 @@ namespace LeetCode
         //    }
         //    else if (nums[halfindex] > target) // bal
         //    {
-                
+
         //        for (int i = 0; i <= halfindex; i++)
         //        {
         //            if (nums[i] == )
