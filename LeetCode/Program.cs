@@ -37,7 +37,15 @@ namespace LeetCode
 
             //TitleToNumber("ZY");
 
-            int[] result = ReplaceElements(nums);
+            //int[] result = ReplaceElements(nums);
+
+
+
+
+            //string test = "(){}}{";
+            //Console.WriteLine(IsValid(test));
+
+            
 
 
 
@@ -55,10 +63,53 @@ namespace LeetCode
 
 
 
+        }
 
 
 
 
+
+
+
+        //public int SearchInsert(int[] nums, int target) //VISSZATERNI RA LOGARITMIKUS KERESES O(Log n)- be kéri
+        //{
+        //    int halfindex = nums.Length / 2;
+        //    if (nums[halfindex] == target)
+        //    {
+        //        return halfindex;
+        //    }
+        //    else if (nums[halfindex] > target) // bal
+        //    {
+                
+        //        for (int i = 0; i <= halfindex; i++)
+        //        {
+        //            if (nums[i] == )
+        //            {
+
+        //            }
+        //        }
+        //    }
+        //    else if(nums[halfindex] < target) // jobb
+        //    {
+
+        //    }
+        //    else // nincs benne 
+        //    {
+
+        //    }
+
+        //}
+
+        public int StrStr(string haystack, string needle)
+        {
+            if (haystack.Contains(needle))
+            {
+                return haystack.IndexOf(needle);
+            }
+            else
+            {
+                return -1;
+            }
         }
 
 
@@ -991,6 +1042,76 @@ namespace LeetCode
             Array.Sort(nums);
             return nums;    
         }
+
+        public static bool IsValid(string s) // "()[]{}"
+        {
+
+            
+            
+            
+            
+                
+
+                if (s.Contains("("))
+            {
+                int index = s.IndexOf("(");
+                var nextindex = index + 1;
+                if (nextindex >= s.Length || index > s.IndexOf(")"))
+                {
+                    return false;
+                }
+                if (s[nextindex] == ')')
+                {
+                    return true;
+                }
+                return false;
+                    
+                
+            }
+            else if (s.Contains("["))
+            {
+                int index = s.IndexOf("[");
+                var nextindex = index + 1;
+                if (nextindex >= s.Length || index > s.IndexOf("]"))
+                {
+                    return false;
+                }
+                if (s[nextindex] == ']')
+                {
+                    return true;
+                }
+                return false;
+
+            }
+            else if (s.Contains("{"))
+            {
+                int index = s.IndexOf("{");
+                var nextindex = index + 1;
+                if (nextindex >= s.Length || index > s.IndexOf("}"))
+                {
+                    return false;
+                }
+                if (s[nextindex] == '}')
+                {
+                    return true;
+                }
+                return false;
+
+            }
+            else if (s.Length == 1)
+            {
+                return false;
+            }
+                
+            
+            return false;
+            
+            
+
+
+
+        }
+
 
 
 
